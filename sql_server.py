@@ -1,5 +1,6 @@
 import json
 import pyodbc
+import pandas as pd
 
 with open("config.json", "r") as f:
     config = json.loads(f.read())
@@ -23,7 +24,6 @@ class SQLServer:
             print("[SQL Server] Can't open a connection to SQL Server")
             exit()
     def login(self, username, password):
-        self.cursor.execute("SELECT * FROM [User] WHERE username = '{username}' AND password = '{password}'")
-        return self.cursor.arraysize
+        return pd.read_sql(f"SELECT * FROM [User] WHERE username = '{username}' AND password = '{password}'", self.conn).shape[0]
 
 sql = SQLServer()

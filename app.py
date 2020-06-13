@@ -26,7 +26,7 @@ def login():
         if response:
             return redirect(url_for("dashboard"))
         else:
-            error = response.json['error']
+            error = response.json()['error']
     return render_template('login.html', title = 'Login', error = error)
 @app.route('/dashboard', methods = ['GET', 'POST'])
 def dashboard():
