@@ -1,0 +1,11 @@
+{
+    "SQL-Server":
+    {
+        "Driver": "{ODBC Driver 17 for SQL Server}",
+        "Server": "KLXL",
+        "Database": "HighSchoolDB",
+        "Trusted_Connection": "yes",
+        "Connect Timeout": 10
+    },
+    "path": "http://localhost:5000"
+}
