@@ -2,14 +2,15 @@ from flask_restful import fields
 
 class FormatDateTime(fields.String):
     def format(self, value):
-        date = super().format(value)
-        l = date.split('-')
-        return '/'.join(l[::-1])
+        return '/'.join(super().format(value).split('-')[::-1])
+class FormatGender(fields.String):
+    def format(self, value):
+        return 'Male' if super().format(value).upper() == 'M' else 'Female'
 
 student_serializer = {
     'id': fields.String,
     'fullname': fields.String,
     'address': fields.String,
-    'gender': fields.String,
+    'gender': FormatGender,
     'birthdate': FormatDateTime
 }

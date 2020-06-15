@@ -1,4 +1,9 @@
 {
+    "app":
+    {
+        "secret_key": "CSDL_Assignment2",
+        "prefix_api": "/api/v1"
+    },
     "SQL-Server":
     {
         "Driver": "{ODBC Driver 17 for SQL Server}",
